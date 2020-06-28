@@ -6,12 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent {
-  taskTitle: string;
-  taskDate: string;
+  taskTitle: string = "Prova";
+  taskDate: string = "12/02/20";
   taskStatus :number;
   taskDescription :string;
 
   constructor() {
+
   }
   aconstructor(taskTitle ?: string, taskDate ?: string, taskStatus ?: number, taskDescription?:string){
     this.taskTitle = taskTitle;

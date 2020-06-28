@@ -26,13 +26,13 @@ export class TasksComponent {
     if (event.previousContainer === event.container) {
       moveItemInArray<TaskComponent>(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      console.log(event);
       transferArrayItem<TaskComponent>(event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex);
     }
   }
+
 }
 
 

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {TaskComponent} from "../task/task.component";
+import {TasksService} from "../tasks.service";
 
 @Component({
   selector: 'app-input',
@@ -9,6 +11,10 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 export class InputComponent implements OnInit {
 
   myForm: FormGroup;
+
+
+  @Output()
+  change: EventEmitter<TaskComponent> = new EventEmitter<TaskComponent>();
 
   constructor(private fb: FormBuilder) { }
 
@@ -24,8 +30,13 @@ export class InputComponent implements OnInit {
   }
 
   printLog(){
-   console.log(this.myForm.value);
-
+   //console.log(this.myForm.value);
+   let task = new TaskComponent();
+   task.taskTitle = this.myForm.getRawValue().taskTitle;
+   task.taskDate = this.myForm.getRawValue().taskDate;
+   task.taskStatus = this.myForm.getRawValue().taskStatus;
+   task.taskDescription = this.myForm.getRawValue().taskDescription;
+   //this.change.emit(task);
   }
 
 }

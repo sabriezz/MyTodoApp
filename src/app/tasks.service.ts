@@ -1,6 +1,4 @@
 import {TaskComponent} from "./task/task.component";
-
-
 export class TasksService{
 
   getDoing() : TaskComponent[]{
@@ -8,6 +6,7 @@ export class TasksService{
     let doing: Array<TaskComponent> =[];
     v.taskTitle="esempio";
     v.taskDate="13/23/21"
+    doing.push(v);
     doing.push(v);
     doing.push(v);
     doing.push(v);
@@ -26,6 +25,8 @@ export class TasksService{
     return todo;
   }
 
+  addTask(task: TaskComponent) {
 
+  }
 }
 

@@ -1,28 +1,30 @@
-<form [formGroup]="myForm" cdkDrag>
-  <!--Value: {{myForm.value | json}}-->
-  <div class="example-container">
-    <mat-form-field appearance="fill">
-      <mat-label>Task Name</mat-label>
-      <input matInput formControlName="taskTitle" required>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Status</mat-label>
-      <mat-select formControlName="taskStatus">
-        <mat-option value="0">To Do</mat-option>
-        <mat-option value="1">In Progress</mat-option>
-        <mat-option value="2">Done</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Description</mat-label>
-      <textarea matInput formControlName="taskDescription"></textarea>
-    </mat-form-field>
-    <input matInput [matDatepicker]="picker"  formControlName="taskDate" required >
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker ></mat-datepicker>
-    <button mat-raised-button color="primary" (click)="printLog()"> ADD </button>
-  </div>
-</form>
+<div class="input">
+  <form [formGroup]="myForm">
+    <!--Value: {{myForm.value | json}}-->
+    <div class="example-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Task Name</mat-label>
+        <input matInput formControlName="taskTitle" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Status</mat-label>
+        <mat-select  formControlName="taskStatus">
+          <mat-option value="0" >To Do</mat-option>
+          <mat-option value="1">In Progress</mat-option>
+          <mat-option value="2">Done</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea style="resize:none" matInput formControlName="taskDescription"></textarea>
+      </mat-form-field>
+      <input matInput [matDatepicker]="picker"  formControlName="taskDate" required >
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker ></mat-datepicker>
+      <button mat-raised-button color="primary" (click)="printLog()"> ADD </button>
+    </div>
+  </form>
+</div>
 
