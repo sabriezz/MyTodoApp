@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row" cdkDropListGroup>
+    <div class="col">
+      <div class="card-container" cdkDrag>
+        <div class="card mb-5 mb-lg-0">
+          <div class="card-body">
+            <h1 class="card-title text-muted text-uppercase text-center">TO DO</h1>
+            <hr>
+            <div class="drop"
+                 cdkDropList
+                 #todoList="cdkDropList"
+                 [cdkDropListData]="todo"
+                 [cdkDropListConnectedTo]="[doingList]"
+                 [cdkDropListConnectedTo]="[doneList]"
+                 (cdkDropListDropped)="drop($event)">
+              <div *ngFor="let item of todo" cdkDrag> <app-task> </app-task> </div>
+              <!--<app-task cdkDrag></app-task>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card-container" cdkDrag>
+        <div class="card mb-5 mb-lg-0">
+          <div class="card-body">
+            <h1 class="card-title text-muted text-uppercase text-center">IN PROGRESS</h1>
+            <hr>
+            <div
+              class="drop"
+              cdkDropList
+              #doingList="cdkDropList"
+              [cdkDropListData]="doing"
+              [cdkDropListConnectedTo]="[todoList]"
+              [cdkDropListConnectedTo]="[doneList]"
+              (cdkDropListDropped)="drop($event)">
+              <div *ngFor="let item of doing" cdkDrag> <app-task> </app-task> </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card-container" cdkDrag>
+        <div class="card mb-5 mb-lg-0">
+          <div class="card-body">
+            <h1 class="card-title text-muted text-uppercase text-center">DONE</h1>
+            <hr>
+            <div
+              cdkDropList
+              class="drop"
+              #doneList="cdkDropList"
+              [cdkDropListData]="done"
+              [cdkDropListConnectedTo]="[todoList]"
+              [cdkDropListConnectedTo]="[doingList]"
+              (cdkDropListDropped)="drop($event)">
+              <div *ngFor="let item of done" cdkDrag> <app-task> </app-task> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
