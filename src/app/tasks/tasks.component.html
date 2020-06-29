@@ -2,9 +2,9 @@
   <div class="row" cdkDropListGroup>
     <div class="col">
       <div class="card-container" cdkDrag>
-        <div class="card mb-5 mb-lg-0">
+        <div class="card mb-6 mb-lg-0">
           <div class="card-body">
-            <h1 class="card-title text-muted text-uppercase text-center">TO DO</h1>
+            <h1 class="card-title text-muted text-uppercase text-center">TO DO</h1><span *ngIf="todo.length!=0" matBadge="{{todo.length}}" matBadgeOverlap="false"> </span>
             <hr>
             <div class="drop"
                  cdkDropList
@@ -14,19 +14,24 @@
                  [cdkDropListConnectedTo]="[doneList]"
                  (cdkDropListDropped)="drop($event)">
               <div *ngFor="let item of todo; let i = index" cdkDrag>
-                <div class="container">
-                  <div class="hover" id="todo">
-                    <div class="row">
-                      <div class="col"><strong> {{item.taskTitle }}</strong>{{" "+item.taskDate}}</div>
-                      <div class="col">
-                        <a class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-eye-open"></span></a>
-                        <a class="btn btn-xs btn-danger" (click)="delete(i,0)"><span class="glyphicon glyphicon-eye-open"></span></a>
-                      </div>
-                    </div>
-                  </div>
+                        <mat-expansion-panel hideToggle id="todo">
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                              <div>
+                                <span class="left"><strong>{{item.taskTitle}}</strong></span>
+                                <span class="right">{{item.taskDate}}</span>
+                              </div>
+                            </mat-panel-title>
+                          </mat-expansion-panel-header>
+                          <p *ngIf="item.taskDescription!=0">{{item.taskDescription}}</p>
+                          <div style="text-align: center">
+                          <a class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-eye-open"></span></a>
+                          <a class="btn btn-xs btn-danger" (click)="delete(i,0)"><span class="glyphicon glyphicon-eye-open"></span></a>
+                          </div>
+                        </mat-expansion-panel>
                 </div>
               </div>
-            </div>
+
           </div>
         </div>
       </div>
@@ -35,7 +40,8 @@
       <div class="card-container" cdkDrag>
         <div class="card mb-5 mb-lg-0">
           <div class="card-body">
-            <h1 class="card-title text-muted text-uppercase text-center">IN PROGRESS</h1>
+            <h1 class="card-title text-muted text-uppercase text-center">IN PROGRESS </h1>
+            <span  *ngIf="doing.length!=0" matBadge="{{doing.length}}" matBadgeOverlap="false"></span>
             <hr>
             <div
               class="drop"
@@ -46,17 +52,21 @@
               [cdkDropListConnectedTo]="[doneList]"
               (cdkDropListDropped)="drop($event)">
               <div *ngFor="let item of doing; let i = index " cdkDrag>
-                <div class="container">
-                  <div class="hover">
-                    <div class="row">
-                      <div class="col"><strong> {{item.taskTitle }}</strong>{{" "+item.taskDate}}</div>
-                      <div class="col">
-                        <a class="btn btn-xs btn-warning" (click)="modify(item)"><span class="glyphicon glyphicon-eye-open"></span></a>
-                        <a class="btn btn-xs btn-danger" (click)="delete(i,1)" ><span class="glyphicon glyphicon-eye-open"></span></a>
+                <mat-expansion-panel hideToggle>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <div>
+                        <span class="left"><strong>{{item.taskTitle}}</strong></span>
+                        <span class="right">{{item.taskDate}}</span>
                       </div>
-                    </div>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <p *ngIf="item.taskDescription!=0">{{item.taskDescription}}</p>
+                  <div style="text-align: center">
+                    <a class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-xs btn-danger" (click)="delete(i,0)"><span class="glyphicon glyphicon-eye-open"></span></a>
                   </div>
-                </div>
+                </mat-expansion-panel>
               </div>
             </div>
           </div>
@@ -68,6 +78,7 @@
         <div class="card mb-5 mb-lg-0">
           <div class="card-body">
             <h1 class="card-title text-muted text-uppercase text-center">DONE</h1>
+            <span *ngIf="done.length!=0" matBadge="{{done.length}}" matBadgeOverlap="false"></span>
             <hr>
             <div
               cdkDropList
@@ -78,17 +89,21 @@
               [cdkDropListConnectedTo]="[doingList]"
               (cdkDropListDropped)="drop($event)">
               <div *ngFor="let item of done; let i = index" cdkDrag>
-                <div class="container">
-                  <div class="hover" id="done">
-                    <div class="row">
-                      <div class="col" ><strong> {{item.taskTitle }}</strong>{{" "+item.taskDate}}</div>
-                      <div class="col">
-                        <a class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-eye-open"></span></a>
-                        <a class="btn btn-xs btn-danger" (click)="delete(i,2)"><span class="glyphicon glyphicon-eye-open"></span></a>
+                <mat-expansion-panel hideToggle id="done">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <div>
+                        <span class="left"><strong>{{item.taskTitle}}</strong></span>
+                        <span class="right">{{item.taskDate}}</span>
                       </div>
-                    </div>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <p *ngIf="item.taskDescription!=0">{{item.taskDescription}}</p>
+                  <div style="text-align: center">
+                    <a class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-xs btn-danger" (click)="delete(i,0)"><span class="glyphicon glyphicon-eye-open"></span></a>
                   </div>
-                </div>
+                </mat-expansion-panel>
               </div>
             </div>
           </div>
