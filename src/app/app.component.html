@@ -1,5 +1,5 @@
 <div class="container">
-  <app-tasks> </app-tasks>
+  <app-tasks [doing]="doing" [done]="done" [todo]="todo"> </app-tasks>
 </div>
-<app-input></app-input>
+<app-input (task)="getTask($event)" ></app-input>
 

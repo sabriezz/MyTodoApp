@@ -10,7 +10,6 @@ export class TasksService{
     doing.push(v);
     doing.push(v);
     doing.push(v);
-
     return doing;
   }
   getDone() : TaskComponent[]{

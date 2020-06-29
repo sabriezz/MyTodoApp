@@ -11,10 +11,7 @@ import {TasksService} from "../tasks.service";
 export class InputComponent implements OnInit {
 
   myForm: FormGroup;
-
-
-  @Output()
-  change: EventEmitter<TaskComponent> = new EventEmitter<TaskComponent>();
+  @Output() task = new EventEmitter<TaskComponent>();
 
   constructor(private fb: FormBuilder) { }
 
@@ -36,7 +33,7 @@ export class InputComponent implements OnInit {
    task.taskDate = this.myForm.getRawValue().taskDate;
    task.taskStatus = this.myForm.getRawValue().taskStatus;
    task.taskDescription = this.myForm.getRawValue().taskDescription;
-   //this.change.emit(task);
+   this.task.emit(task);
   }
 
 }

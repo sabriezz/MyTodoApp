@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -6,13 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent {
-  taskTitle: string = "Prova";
-  taskDate: string = "12/02/20";
+  @Input() task: TaskComponent;
+  taskTitle: string;
+  taskDate: string;
   taskStatus :number;
   taskDescription :string;
 
   constructor() {
-
   }
   aconstructor(taskTitle ?: string, taskDate ?: string, taskStatus ?: number, taskDescription?:string){
     this.taskTitle = taskTitle;

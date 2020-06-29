@@ -13,7 +13,7 @@
                  [cdkDropListConnectedTo]="[doingList]"
                  [cdkDropListConnectedTo]="[doneList]"
                  (cdkDropListDropped)="drop($event)">
-              <div *ngFor="let item of todo" cdkDrag> <app-task> </app-task> </div>
+              <div *ngFor="let item of todo" cdkDrag> <app-task [task]="item" > </app-task> </div>
               <!--<app-task cdkDrag></app-task>-->
             </div>
           </div>
