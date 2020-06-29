@@ -13,8 +13,19 @@
                  [cdkDropListConnectedTo]="[doingList]"
                  [cdkDropListConnectedTo]="[doneList]"
                  (cdkDropListDropped)="drop($event)">
-              <div *ngFor="let item of todo" cdkDrag> <app-task [task]="item" > </app-task> </div>
-              <!--<app-task cdkDrag></app-task>-->
+              <div *ngFor="let item of todo; let i = index" cdkDrag>
+                <div class="container">
+                  <div class="hover" id="todo">
+                    <div class="row">
+                      <div class="col"><strong> {{item.taskTitle }}</strong>{{" "+item.taskDate}}</div>
+                      <div class="col">
+                        <a class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-eye-open"></span></a>
+                        <a class="btn btn-xs btn-danger" (click)="delete(i,0)"><span class="glyphicon glyphicon-eye-open"></span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -34,8 +45,19 @@
               [cdkDropListConnectedTo]="[todoList]"
               [cdkDropListConnectedTo]="[doneList]"
               (cdkDropListDropped)="drop($event)">
-              <div *ngFor="let item of doing" cdkDrag> <app-task> </app-task> </div>
-
+              <div *ngFor="let item of doing; let i = index " cdkDrag>
+                <div class="container">
+                  <div class="hover">
+                    <div class="row">
+                      <div class="col"><strong> {{item.taskTitle }}</strong>{{" "+item.taskDate}}</div>
+                      <div class="col">
+                        <a class="btn btn-xs btn-warning" (click)="modify(item)"><span class="glyphicon glyphicon-eye-open"></span></a>
+                        <a class="btn btn-xs btn-danger" (click)="delete(i,1)" ><span class="glyphicon glyphicon-eye-open"></span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -55,7 +77,19 @@
               [cdkDropListConnectedTo]="[todoList]"
               [cdkDropListConnectedTo]="[doingList]"
               (cdkDropListDropped)="drop($event)">
-              <div *ngFor="let item of done" cdkDrag> <app-task> </app-task> </div>
+              <div *ngFor="let item of done; let i = index" cdkDrag>
+                <div class="container">
+                  <div class="hover" id="done">
+                    <div class="row">
+                      <div class="col" ><strong> {{item.taskTitle }}</strong>{{" "+item.taskDate}}</div>
+                      <div class="col">
+                        <a class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-eye-open"></span></a>
+                        <a class="btn btn-xs btn-danger" (click)="delete(i,2)"><span class="glyphicon glyphicon-eye-open"></span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
