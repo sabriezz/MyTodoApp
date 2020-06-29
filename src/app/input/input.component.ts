@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {TaskComponent} from "../task/task.component";
 import {TasksService} from "../tasks.service";
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-input',
@@ -22,18 +23,20 @@ export class InputComponent implements OnInit {
       taskStatus: 0,
       taskDescription: ''
     });
-
-    //this.myForm.valueChanges.subscribe(console.log);
   }
 
-  printLog(){
+  addTask(){
    //console.log(this.myForm.value);
    let task = new TaskComponent();
    task.taskTitle = this.myForm.getRawValue().taskTitle;
-   task.taskDate = this.myForm.getRawValue().taskDate;
+   let date = this.myForm.getRawValue().taskDate;
+   const momentDate = new Date(date);
+   const formattedDate  = moment(momentDate).format("DD/MM/YYYY");
+   task.taskDate=formattedDate;
    task.taskStatus = this.myForm.getRawValue().taskStatus;
    task.taskDescription = this.myForm.getRawValue().taskDescription;
    this.task.emit(task);
+   this.myForm.reset();
   }
 
 }

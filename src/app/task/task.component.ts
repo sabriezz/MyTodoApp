@@ -5,7 +5,7 @@ import {Component, Input, OnInit} from '@angular/core';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss']
 })
-export class TaskComponent {
+export class TaskComponent implements OnInit{
   @Input() task: TaskComponent;
   taskTitle: string;
   taskDate: string;
@@ -14,10 +14,9 @@ export class TaskComponent {
 
   constructor() {
   }
-  aconstructor(taskTitle ?: string, taskDate ?: string, taskStatus ?: number, taskDescription?:string){
-    this.taskTitle = taskTitle;
-    this.taskDate = taskDate;
-    this.taskStatus = taskStatus;
-    this.taskDescription = taskDescription;
+
+  ngOnInit() {
+      //console.log(this.task);
   }
+
 }

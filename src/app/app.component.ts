@@ -22,13 +22,16 @@ export class AppComponent {
     this.done = tasksService.getDone();
   }
 
-  getTask(event: TaskComponent){
-    if(event.taskStatus==0){
+  getTask(event: TaskComponent) {
+    if (event.taskStatus == 0) {
       this.todo.push(event);
-    }else if(event.taskStatus==1){
+      localStorage.setItem('todo', JSON.stringify(this.todo));
+    } else if (event.taskStatus == 1) {
       this.doing.push(event);
-    }else{
+      localStorage.setItem('doing', JSON.stringify(this.doing));
+    } else {
       this.done.push(event);
+      localStorage.setItem('done', JSON.stringify(this.done));
     }
   }
 }

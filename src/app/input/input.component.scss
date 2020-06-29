@@ -1,16 +1,21 @@
 
 .input{
-  position: fixed;
-  height: 300px;
+  position: absolute;
+  top: 55%;
   background: rgba(white,0.6);
-  width: 280px;
+  width: 300px;
   //border: 2px solid #289DEA;
-  border-radius: 0px 33px 33px 0px;
+  border-radius: 0px 10px 10px 0px;
+  padding: 10px;
 }
 .example-container{
+  padding-top: 10px;
   text-align: center;
-  padding: 10px;
 }
 .input:hover{
   background: rgba(white,1.0);
+}
+.buttons{
+  text-align: right;
+  padding: 4px;
 }
