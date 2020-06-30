@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
 import {TaskComponent} from "../task/task.component";
 import {TasksService} from "../tasks.service";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-tasks',
@@ -15,6 +16,8 @@ export class TasksComponent {
   @Input() todo : Array<TaskComponent> =[];
   @Input() doing : Array<TaskComponent> =[];
   @Input() done : Array<TaskComponent> =[];
+  flag = 0;
+  change: FormGroup;
 
 
   update(){
@@ -46,9 +49,6 @@ export class TasksComponent {
     this.update();
   }
 
-  modify(task: TaskComponent){
-    console.log(task);
-  }
 }
 
 

@@ -13,7 +13,6 @@ export class InputComponent implements OnInit {
 
   myForm: FormGroup;
   @Output() task = new EventEmitter<TaskComponent>();
-
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -24,18 +23,32 @@ export class InputComponent implements OnInit {
       taskDescription: ''
     });
   }
-
+  reset(){
+    this.myForm = this.fb.group({
+      taskTitle: '',
+      taskDate: '',
+      taskStatus: 0,
+      taskDescription: ''
+    });
+  }
   addTask(){
    //console.log(this.myForm.value);
    let task = new TaskComponent();
    task.taskTitle = this.myForm.getRawValue().taskTitle;
    let date = this.myForm.getRawValue().taskDate;
-   const momentDate = new Date(date);
-   const formattedDate  = moment(momentDate).format("DD/MM/YYYY");
-   task.taskDate=formattedDate;
+   if(date === ''){
+     const momentDate = new Date();
+     const formattedDate  = moment(momentDate).format("DD/MM/YYYY");
+     task.taskDate= formattedDate;
+   }else{
+     const momentDate = new Date(date);
+     const formattedDate  = moment(momentDate).format("DD/MM/YYYY");
+     task.taskDate=formattedDate;
+   }
    task.taskStatus = this.myForm.getRawValue().taskStatus;
    task.taskDescription = this.myForm.getRawValue().taskDescription;
    this.task.emit(task);
+   this.reset();
    this.myForm.reset();
   }
 
