@@ -25,7 +25,7 @@
                           </mat-expansion-panel-header>
                           <p *ngIf="item.taskDescription!=0">{{item.taskDescription}}</p>
                           <div style="text-align: center">
-                          <a class="btn btn-xs btn-warning" (click)="modify(i,0)"><span class="glyphicon glyphicon-eye-open"></span></a>
+                          <a class="btn btn-xs btn-warning" (click)="openDialog(i,0)"><span class="glyphicon glyphicon-eye-open"></span></a>
                           <a class="btn btn-xs btn-danger" (click)="delete(i,0)"><span class="glyphicon glyphicon-eye-open"></span></a>
                           </div>
                         </mat-expansion-panel>

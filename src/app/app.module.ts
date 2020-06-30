@@ -11,19 +11,22 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatSelectModule} from "@angular/material/select";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatInput, MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatExpansionModule} from "@angular/material/expansion";
+import { DialogComponent } from './dialog/dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
     TaskComponent,
-    TasksComponent
+    TasksComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
     MatButtonModule,
     MatBadgeModule,
     MatExpansionModule,
+    FormsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

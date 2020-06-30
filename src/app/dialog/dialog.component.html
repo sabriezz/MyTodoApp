@@ -1,0 +1,42 @@
+<!--
+<span class="title" mat-dialog-title>Edit</span>
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="data.taskTitle">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input matInput [(ngModel)]="data.taskDescription">
+  </mat-form-field>
+  <div class="center">
+    <input matInput [matDatepicker]="picker"  formControlName="taskDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker ></mat-datepicker>
+  </div>
+--->
+
+  <form [formGroup]="myForm">
+    <!--Value: {{myForm.value | json}}-->
+    <div class="example-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Task Name</mat-label>
+        <input matInput [(ngModel)]="data.taskTitle"  [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]="data.taskDescription" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <div class="center">
+        <input matInput [matDatepicker]="picker"  [(ngModel)]="data.taskDate" [ngModelOptions]="{standalone:true}">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker ></mat-datepicker>
+      </div>
+    </div>
+  </form>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">ESCI</button>
+  <button id="margin" mat-button [mat-dialog-close]="data" cdkFocusInitial>MODIFICA</button>
+</div>
+
