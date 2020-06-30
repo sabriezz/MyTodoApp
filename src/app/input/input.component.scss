@@ -1,7 +1,7 @@
 
 .input{
   position: absolute;
-  top: 55%;
+  top: 50%;
   background: rgba(white,0.6);
   width: 300px;
   //border: 2px solid #289DEA;
@@ -18,4 +18,7 @@
 .buttons{
   text-align: right;
   padding: 4px;
+}
+.mat-expansion-panel-header-title,.mat-expansion-panel-header-description{
+  margin-right: 0px;
 }

@@ -15,6 +15,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatInput, MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
+import {MatBadgeModule} from "@angular/material/badge";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import {MatButtonModule} from "@angular/material/button";
     MatNativeDateModule,
     MatInputModule,
     MatButtonModule,
+    MatBadgeModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
