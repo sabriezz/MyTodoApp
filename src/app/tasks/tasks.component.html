@@ -63,7 +63,7 @@
                   </mat-expansion-panel-header>
                   <p *ngIf="item.taskDescription!=0">{{item.taskDescription}}</p>
                   <div style="text-align: center">
-                    <a class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-xs btn-warning" (click)="openDialog(i,1)"> <span class="glyphicon glyphicon-eye-open"></span></a>
                     <a class="btn btn-xs btn-danger" (click)="delete(i,1)"><span class="glyphicon glyphicon-eye-open"></span></a>
                   </div>
                 </mat-expansion-panel>
@@ -100,7 +100,7 @@
                   </mat-expansion-panel-header>
                   <p *ngIf="item.taskDescription!=0">{{item.taskDescription}}</p>
                   <div style="text-align: center">
-                    <a class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-xs btn-warning" (click)="openDialog(i,2)"><span class="glyphicon glyphicon-eye-open"></span></a>
                     <a class="btn btn-xs btn-danger" (click)="delete(i,2)"><span class="glyphicon glyphicon-eye-open"></span></a>
                   </div>
                 </mat-expansion-panel>
