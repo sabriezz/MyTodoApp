@@ -32,11 +32,10 @@ export class InputComponent implements OnInit {
     });
   }
   addTask(){
-   //console.log(this.myForm.value);
    let task = new TaskComponent();
    task.taskTitle = this.myForm.getRawValue().taskTitle;
    let date = this.myForm.getRawValue().taskDate;
-   if(date === ''){
+   if(date === '' || date ===null){
      const momentDate = new Date();
      const formattedDate  = moment(momentDate).format("DD/MM/YYYY");
      task.taskDate= formattedDate;
@@ -46,6 +45,9 @@ export class InputComponent implements OnInit {
      task.taskDate=formattedDate;
    }
    task.taskStatus = this.myForm.getRawValue().taskStatus;
+   if(task.taskStatus===null){
+     task.taskStatus=0;
+   }
    task.taskDescription = this.myForm.getRawValue().taskDescription;
    this.task.emit(task);
    this.reset();

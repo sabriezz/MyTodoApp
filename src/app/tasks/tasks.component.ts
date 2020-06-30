@@ -64,10 +64,6 @@ export class TasksComponent {
           date =formattedDate;
         }
 
-
-        console.log(result);
-        console.log(date);
-        //console.log("index: "+i+ "array: "+array);
         if(this.array===0){
           this.todo[i].taskTitle=result.taskTitle;
           this.todo[i].taskDescription=result.taskDescription;
