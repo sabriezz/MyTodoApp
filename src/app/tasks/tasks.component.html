@@ -13,7 +13,7 @@
                  [cdkDropListConnectedTo]="[doingList]"
                  [cdkDropListConnectedTo]="[doneList]"
                  (cdkDropListDropped)="drop($event)">
-              <div *ngFor="let item of todo; let i = index" cdkDrag>
+              <div *ngFor="let item of todo; let i = index" cdkDrag class="tasks">
                         <mat-expansion-panel hideToggle id="todo">
                           <mat-expansion-panel-header>
                             <mat-panel-title>
